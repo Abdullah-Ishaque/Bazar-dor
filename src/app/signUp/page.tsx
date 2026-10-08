@@ -1,7 +1,10 @@
 "use client";
+import { signUp } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 interface RegisterData {
     name: string;
@@ -12,15 +15,30 @@ interface RegisterData {
 
 const SignUpPage = () => {
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const user = Object.fromEntries(formData.entries()) as {
-            email: string;
-            password: string;
+            name: string
+            email: string,
+            password: string,
+            image: string,
         };
 
-        
+        const { data, error } = await signUp.email({
+            ...user,
+            callbackURL: "/",
+        });
+        if (data) {
+            toast("Signed up");
+            redirect("/");
+        }
+
+        if (error) {
+            toast.error("Couldn't signed up");
+        }
+
+
     };
 
     return (
@@ -35,15 +53,8 @@ const SignUpPage = () => {
             </div>
             <div className="mx-auto max-w-md rounded-2xl border border-gray-200 bg-white p-6 sm:p-7">
 
-                <Form
-                    onSubmit={onSubmit}
-                    className="flex w-full flex-col gap-5"
-                >
-                    <TextField
-                        isRequired
-                        name="name"
-                        className="w-full"
-                    >
+                <Form onSubmit={onSubmit} className="flex w-full flex-col gap-5">
+                    <TextField isRequired name="name"className="w-full">
                         <Label className="mb-2 block font-medium">
                             নাম
                         </Label>
@@ -53,12 +64,7 @@ const SignUpPage = () => {
                         />
                         <FieldError className="text-sm text-red-600" />
                     </TextField>
-                    <TextField
-                        isRequired
-                        name="email"
-                        type="email"
-                        className="w-full"
-                    >
+                    <TextField isRequired name="email" type="email" className="w-full">
                         <Label className="mb-2 block font-medium">
                             ইমেইল
                         </Label>
@@ -68,13 +74,7 @@ const SignUpPage = () => {
                         />
                         <FieldError className="text-sm text-red-600" />
                     </TextField>
-                    <TextField
-                        isRequired
-                        name="password"
-                        type="password"
-                        minLength={8}
-                        className="w-full"
-                    >
+                    <TextField isRequired name="password" type="password" minLength={8} className="w-full">
                         <Label className="mb-2 block font-medium">
                             পাসওয়ার্ড
                         </Label>
@@ -84,12 +84,7 @@ const SignUpPage = () => {
                         />
                         <FieldError className="text-sm text-red-600" />
                     </TextField>
-                    <TextField
-                        isRequired
-                        name="confirmPassword"
-                        type="password"
-                        className="w-full"
-                    >
+                    <TextField isRequired name="confirmPassword" type="password" className="w-full">
                         <Label className="mb-2 block font-medium">
                             পাসওয়ার্ড নিশ্চিত করুন
                         </Label>
@@ -145,7 +140,7 @@ const SignUpPage = () => {
                 </Link>
             </div>
 
-        </div>
+        </div >
     );
 };
 

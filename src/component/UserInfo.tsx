@@ -1,6 +1,5 @@
 "use client"
-import { useSession } from '@/lib/auth-client';
-import { signOut } from 'better-auth/api';
+import { signOut, useSession } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react';
 

@@ -3,9 +3,12 @@
 
 import Link from "next/link";
 import { Form, TextField, Label, Input, FieldError, Button } from "@heroui/react";
+import { signIn } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SingInPage = () => {
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
@@ -14,6 +17,17 @@ const SingInPage = () => {
             email: string;
             password: string;
         };
+        const { data, error } = await signIn.email({
+            ...user,
+        });
+        if (data) {
+            toast("Signed in");
+            redirect("/");
+        }
+
+        if (error) {
+            toast.error("Couldn't signed in");
+        }
     };
 
 
