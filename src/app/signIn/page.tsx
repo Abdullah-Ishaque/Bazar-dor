@@ -112,10 +112,7 @@ const SingInPage = () => {
                 </div>
                 <p className="mt-5 text-center text-sm text-gray-600">
                     অ্যাকাউন্ট নেই?{" "}
-                    <Link
-                        href="/register"
-                        className="font-medium text-green-700 hover:underline"
-                    >
+                    <Link href="/signUp" className="font-medium text-green-700 hover:underline">
                         সাইন আপ করুন
                     </Link>
                 </p>

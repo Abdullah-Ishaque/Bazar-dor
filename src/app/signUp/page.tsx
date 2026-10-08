@@ -40,6 +40,9 @@ const SignUpPage = () => {
 
 
     };
+    const handleGoogleSingIn = () => {
+        
+    }
 
     return (
         <div className="min-h-screen bg-[#f0f5f1] px-4 py-12">
@@ -122,10 +125,7 @@ const SignUpPage = () => {
                 </div>
                 <p className="mt-5 text-center text-sm text-gray-600">
                     অ্যাকাউন্ট আছে?{" "}
-                    <Link
-                        href="/login"
-                        className="font-medium text-green-700 hover:underline"
-                    >
+                    <Link href="/signIn" className="font-medium text-green-700 hover:underline">
                         সাইন ইন করুন
                     </Link>
                 </p>
