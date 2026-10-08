@@ -2,6 +2,8 @@ import Image from "next/image";
 import NavLinks from "./NavLinks";
 import { connection } from "next/server";
 import { Suspense } from "react";
+import { useSession } from "@/lib/auth-client";
+import UserInfo from "./UserInfo";
 
 const Navbar = async () => {
     await connection();
@@ -29,8 +31,8 @@ const Navbar = async () => {
                         <p>{date}</p>
                     </div>
                 </div>
-                <div>
-                    profile
+                <div className="p-2">
+                    <UserInfo/>
                 </div>
 
             </div>
