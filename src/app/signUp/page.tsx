@@ -4,10 +4,10 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import Link from "next/link";
 
 interface RegisterData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
 }
 
 const SignUpPage = () => {
@@ -15,9 +15,12 @@ const SignUpPage = () => {
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const data= Object.fromEntries(formData.entries());
+        const user = Object.fromEntries(formData.entries()) as {
+            email: string;
+            password: string;
+        };
+
         
-        alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
     };
 
     return (
