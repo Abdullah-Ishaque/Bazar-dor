@@ -58,7 +58,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
                         {product.categoryNameBn}
                     </Link>
                     <span>›</span>
-                    <span className="min-w-0 break-words">{product.nameBn}</span>
+                    <span className="min-w-0 ">{product.nameBn}</span>
                 </div>
                 <section className="flex flex-col gap-5 rounded-2xl border border-gray-200 bg-white p-4 md:flex-row md:items-center md:justify-between sm:p-6">
 
@@ -67,7 +67,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
                             {product.image || product.categoryIcon}
                         </div>
 
-                        <div className="min-w-0 break-words">
+                        <div className="min-w-0">
                             <h1 className="text-xl font-bold sm:text-2xl text-[#1c2920]">
                                 {product.nameBn}
                             </h1>

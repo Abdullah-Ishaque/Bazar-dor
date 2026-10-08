@@ -1,11 +1,11 @@
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import UserInfo from "./UserInfo";
-import { Suspense } from "react";
 import Link from "next/link";
+import { connection } from "next/server";
 
 const Navbar = async () => {
-    <Suspense>await connection();</Suspense>
+    await connection();
 
     const date = new Date().toLocaleDateString("bn-BD", {
         dateStyle: "full",

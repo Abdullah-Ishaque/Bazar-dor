@@ -4,7 +4,6 @@
 import Link from "next/link";
 import { Form, TextField, Label, Input, FieldError, Button } from "@heroui/react";
 import { signIn } from "@/lib/auth-client";
-import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
@@ -22,12 +21,13 @@ const SingInPage = () => {
             ...user,
         });
         if (data) {
-            toast("Signed in");
-            redirect("/");
+            toast.success('Signed In')
+            console.log("sdfsfsdfs " , data);
         }
 
         if (error) {
-            toast.error("Couldn't signed in");
+            toast.error("Something went error!");
+            console.log(error);
         }
     };
 

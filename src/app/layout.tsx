@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/component/Navbar";
 import Marquee from "@/component/Marquee";
 import Footer from "@/component/Footer";
+import { Suspense } from "react";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -24,8 +25,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSerifBengali.className} h-full antialiased`}
     >
       <body className="flex min-h-full min-w-0 flex-col">
-        <Navbar />
-        <div><Marquee /></div>
+        <Suspense fallback={<div className="h-32 sm:h-28" />}>
+          <Navbar />
+        </Suspense>
+        <div>
+          <Suspense fallback={<div className="h-12" />}>
+            <Marquee />
+          </Suspense>
+        </div>
         <div className="min-w-0 flex-1">
           {children}
         </div>

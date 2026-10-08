@@ -34,3 +34,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+
+
+
+
+
+
+Project name: Bazar Dor
+
+This website shows current prices, price increases or decreases of the foods.
+
+Technologies used: Next.js, JavaScript, HTML, CSS, Tailwind, React Toastfy, Hero Ui, Better auth, Github
+
+Key feature:
+1. Shows the current prices
+2. Shows the increase rate of price
+3. shows the decrease rate of price
+4. Have sign in and sign up option
+5. Profile can be updated

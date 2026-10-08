@@ -27,7 +27,6 @@ const toBangla = (value: number) =>
 
 export default function CategoryBody({
     products,
-    categoryId,
 }: CategoryBodyProps) {
     const [sortBy, setSortBy] = useState("featured");
 
@@ -78,8 +77,8 @@ return (
                     className="min-w-0 max-w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none focus:border-green-600"
                 >
                     <option value="featured">ডিফল্ট</option>
-                    <option value="price-low">কম থেকে বেশি</option>
-                    <option value="price-high">বেশি থেকে কম</option>
+                    <option value="price-low">দাম: কম থেকে বেশি</option>
+                    <option value="price-high">দাম: বেশি থেকে কম</option>
                 </select>
             </div>
             <p className="my-4 text-sm text-gray-500">
@@ -92,7 +91,7 @@ return (
 
                     return (
                         <Link
-                            href={`/products/${product.slug}`}
+                            href={`/product/${product.id}`}
                             key={product.id}
                             className="block min-w-0 rounded-xl border border-gray-200 bg-white p-4 transition hover:shadow-md"
                         >
