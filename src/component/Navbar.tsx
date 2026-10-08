@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import { connection } from "next/server";
+import { Suspense } from "react";
 
 const Navbar = async () => {
     await connection();

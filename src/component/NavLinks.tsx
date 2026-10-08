@@ -1,5 +1,6 @@
 
 import INavLinkType from '@/Type/INavLinkType';
+import Link from 'next/link';
 import React from 'react';
 
 const NavLinks = async () => {
@@ -11,14 +12,14 @@ const NavLinks = async () => {
     return (
         <div className='relative mx-auto max-w-7xl flex gap-8 p-2'>
             {data.map((category: INavLinkType ) => (
-                <a
+                <Link
                     key={category.id}
-                    href={`${category.slug}`}
+                    href={`/category/${category.slug}`}
                     className="category-tab"
                 >
                     <span className="category-icon">{category.icon}</span>
                     <span>{category.nameBn}</span>
-                </a>
+                </Link>
             ))}
         </div>
     );
