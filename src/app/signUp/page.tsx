@@ -41,20 +41,20 @@ const SignUpPage = () => {
 
     };
     const handleGoogleSingIn = () => {
-        
+            
     }
 
     return (
-        <div className="min-h-screen bg-[#f0f5f1] px-4 py-12">
+        <div className="min-h-screen bg-[#f0f5f1] px-4 py-8 sm:px-6 sm:py-12">
             <div className="mb-8 text-center">
-                <h1 className="text-3xl font-bold text-[#1c2920]">
+                <h1 className="text-2xl font-bold sm:text-3xl text-[#1c2920]">
                     অ্যাকাউন্ট তৈরি করুন
                 </h1>
-                <p className="mt-2 text-gray-500">
+                <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-gray-500 sm:text-base">
                     বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন
                 </p>
             </div>
-            <div className="mx-auto max-w-md rounded-2xl border border-gray-200 bg-white p-6 sm:p-7">
+            <div className="mx-auto w-full max-w-md rounded-2xl border border-gray-200 bg-white p-4 sm:p-7">
 
                 <Form onSubmit={onSubmit} className="flex w-full flex-col gap-5">
                     <TextField isRequired name="name"className="w-full">
@@ -110,15 +110,15 @@ const SignUpPage = () => {
                     <span className="text-sm text-gray-500">অথবা</span>
                     <div className="h-px flex-1 bg-gray-200" />
                 </div>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-3">
                     <Button
-                        className="w-full rounded-lg border border-gray-200 py-3 font-semibold"
+                        className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base"
                     >
                         Google দিয়ে চালিয়ে যান
                     </Button>
 
                     <Button
-                        className="w-full rounded-lg border border-gray-200 py-3 font-semibold"
+                        className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base"
                     >
                         GitHub দিয়ে চালিয়ে যান
                     </Button>

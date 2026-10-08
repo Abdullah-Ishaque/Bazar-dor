@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/Navbar";
-import Marquee from "@/component/Maequee";
+import Marquee from "@/component/Marquee";
 import Footer from "@/component/Footer";
 
 const notoSerifBengali = Noto_Serif_Bengali({
-  subsets: ["latin" , "bengali"],
+  subsets: ["latin", "bengali"],
 });
 
 
@@ -23,13 +23,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="light"
       className={`${notoSerifBengali.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <div><Navbar/></div>
-        <div><Marquee/></div>
-        <div>
+      <body className="flex min-h-full min-w-0 flex-col">
+        <Navbar />
+        <div><Marquee /></div>
+        <div className="min-w-0 flex-1">
           {children}
         </div>
-        <div><Footer/></div>
+        <div><Footer /></div>
       </body>
     </html>
   );

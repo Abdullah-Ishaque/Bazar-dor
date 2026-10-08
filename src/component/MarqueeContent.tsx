@@ -31,7 +31,7 @@ export default function MarqueeContent({
         <Link
           key={product.id}
           href={`/products/${product.slug}`}
-          className="mx-5 inline-flex items-center gap-2 whitespace-nowrap text-lg text-gray-800 hover:underline"
+          className="mx-3 inline-flex items-center gap-2 whitespace-nowrap text-sm sm:mx-5 sm:text-base lg:text-lg text-gray-800 hover:underline"
         >
           <span>{product.categoryIcon}</span>
 

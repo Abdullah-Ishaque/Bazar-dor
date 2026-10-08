@@ -2,14 +2,14 @@ import Image from 'next/image';
 
 const Hero = () => {
     return (
-        <div className="relative mx-auto max-w-7xl pt-6">
-            <div className="mx-auto flex min-h-70 w-full items-center justify-between gap-8 rounded-3xl border border-gray-200 bg-white px-5 py-7 sm:px-8 md:px-10 lg:px-14">
+        <div className="relative mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 sm:pt-6">
+            <div className="mx-auto flex min-h-70 w-full items-center justify-between gap-5 rounded-3xl border border-gray-200 bg-white px-4 py-6 sm:gap-8 sm:px-8 sm:py-7 md:px-10 lg:px-14">
 
-                <div className="flex-1">
+                <div className="min-w-0 flex-1">
                     <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
                         মঙ্গলবার, ৬ অক্টোবর, ২০২৬
                     </span>
-                    <h1 className="mt-4 text-3xl font-bold text-[#17251d] sm:text-4xl lg:text-[40px]">
+                    <h1 className="mt-4 text-2xl leading-snug font-bold text-[#17251d] sm:text-3xl lg:text-[40px]">
                         আজকের বাজারের দাম এক নজরে
                     </h1>
 
@@ -21,19 +21,17 @@ const Hero = () => {
                     </p>
 
 
-                    <button className="mt-7 rounded-lg bg-green-600 px-6 py-3 font-semibold text-white shadow hover:bg-green-700">
+                    <button className="mt-7 w-full rounded-lg bg-green-600 px-6 py-3 font-semibold text-white shadow hover:bg-green-700 sm:w-auto">
                         সব পণ্য দেখুন
                     </button>
                 </div>
-
-                {/* Right side */}
                 <div className="hidden shrink-0 md:block">
                     <Image
                         src="/bazar-hero.png"
                         alt="বাজারের পণ্য"
                         width={200}
                         height={200}
-                        className="w-52.5 lg:w-65"
+                        className="h-auto w-40 lg:w-65"
                     />
                 </div>
 

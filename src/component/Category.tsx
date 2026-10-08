@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { TiShoppingCart } from "react-icons/ti";
 
 interface Product {
     id: number;
@@ -49,13 +48,13 @@ export default function CategoryBody({
 return (
     <div className="min-h-screen bg-[#f0f5f1] px-4 py-6 sm:px-6">
         <div className="mx-auto max-w-7xl">
-            <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-5 sm:p-6">
-                <span className="text-4xl">
+            <div className="flex items-center gap-3 rounded-2xl sm:gap-4 border border-gray-200 bg-white p-4 sm:p-6">
+                <span className="shrink-0 text-3xl sm:text-4xl">
                     {products[0]?.categoryIcon}
                 </span>
 
-                <div>
-                    <h1 className="text-2xl font-bold text-[#1c2920]">
+                <div className="min-w-0 break-words">
+                    <h1 className="text-xl font-bold sm:text-2xl text-[#1c2920]">
                         {products[0]?.categoryNameBn}
                     </h1>
 
@@ -64,7 +63,7 @@ return (
                     </p>
                 </div>
             </div>
-            <div className="mt-5 flex items-center justify-end gap-3 rounded-2xl border border-gray-200 bg-white px-5 py-4">
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 sm:justify-end rounded-2xl border border-gray-200 bg-white px-4 py-4 sm:px-5">
                 <label
                     htmlFor="sort-products"
                     className="text-sm text-gray-500"
@@ -76,7 +75,7 @@ return (
                     id="sort-products"
                     value={sortBy}
                     onChange={(event) => setSortBy(event.target.value)}
-                    className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none focus:border-green-600"
+                    className="min-w-0 max-w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 outline-none focus:border-green-600"
                 >
                     <option value="featured">ডিফল্ট</option>
                     <option value="price-low">কম থেকে বেশি</option>
@@ -95,7 +94,7 @@ return (
                         <Link
                             href={`/products/${product.slug}`}
                             key={product.id}
-                            className="block rounded-xl border border-gray-200 bg-white p-4 transition hover:shadow-md"
+                            className="block min-w-0 rounded-xl border border-gray-200 bg-white p-4 transition hover:shadow-md"
                         >
                             <div className="flex items-center gap-3">
                                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f1f5f1] text-2xl">
@@ -113,7 +112,7 @@ return (
                                 </div>
                             </div>
 
-                            <div className="mt-5 flex items-end justify-between gap-2">
+                            <div className="mt-5 flex flex-wrap items-end justify-between gap-2">
                                 <div>
                                     <p className="text-xs text-gray-500">
                                         আজকের দাম

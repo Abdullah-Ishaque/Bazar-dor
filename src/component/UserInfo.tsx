@@ -15,15 +15,15 @@ const UserInfo = () => {
     return (
         <div>
             {user ?
-                <button type="button" onClick={handleSignOut} className="rounded-lg bg-green-600 px-6 py-3 font-semibold text-white shadow-md transition hover:bg-green-700">
+                <button type="button" onClick={handleSignOut} className="rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold sm:px-6 sm:py-3 sm:text-base text-white shadow-md transition hover:bg-green-700">
                     সাইন আউট
                 </button>
                 :
-                <div className="flex items-center justify-center gap-6">
+                <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
                     <Link href="/signIn">
                         <button
                             type="button"
-                            className="cursor-pointer rounded-lg px-5 py-3 font-semibold text-[#1c2920] transition hover:bg-gray-100"
+                            className="cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold sm:px-5 sm:py-3 sm:text-base text-[#1c2920] transition hover:bg-gray-100"
                         >
                             সাইন ইন
                         </button>
@@ -32,7 +32,7 @@ const UserInfo = () => {
                     <Link href="/signUp">
                         <button
                             type="button"
-                            className="cursor-pointer rounded-lg bg-green-600 px-6 py-3 font-semibold text-white shadow-md transition hover:bg-green-700"
+                            className="cursor-pointer rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold sm:px-6 sm:py-3 sm:text-base text-white shadow-md transition hover:bg-green-700"
                         >
                             সাইন আপ
                         </button>
