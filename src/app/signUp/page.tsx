@@ -1,9 +1,10 @@
 "use client";
-import { signUp } from "@/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import { toast } from "react-toastify";
 
 interface RegisterData {
@@ -40,10 +41,16 @@ const SignUpPage = () => {
 
 
     };
-    const handleGoogleSingIn = () => {
-            
+    const handleGoogleSingUp = async () => {
+        await signIn.social({
+            provider: "google",
+        });
     }
-
+    const handleGitHubSingUp = async () => {
+        await signIn.social({
+        provider: "github"
+    })
+    }
     return (
         <div className="min-h-screen bg-[#f0f5f1] px-4 py-8 sm:px-6 sm:py-12">
             <div className="mb-8 text-center">
@@ -57,7 +64,7 @@ const SignUpPage = () => {
             <div className="mx-auto w-full max-w-md rounded-2xl border border-gray-200 bg-white p-4 sm:p-7">
 
                 <Form onSubmit={onSubmit} className="flex w-full flex-col gap-5">
-                    <TextField isRequired name="name"className="w-full">
+                    <TextField isRequired name="name" className="w-full">
                         <Label className="mb-2 block font-medium">
                             নাম
                         </Label>
@@ -111,15 +118,11 @@ const SignUpPage = () => {
                     <div className="h-px flex-1 bg-gray-200" />
                 </div>
                 <div className="grid grid-cols-1 gap-3">
-                    <Button
-                        className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base"
-                    >
+                    <Button onClick={handleGoogleSingUp} className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base">
                         Google দিয়ে চালিয়ে যান
                     </Button>
 
-                    <Button
-                        className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base"
-                    >
+                    <Button onClick={handleGitHubSingUp} className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base">
                         GitHub দিয়ে চালিয়ে যান
                     </Button>
                 </div>
@@ -136,7 +139,7 @@ const SignUpPage = () => {
                     href="/"
                     className="text-sm text-gray-500 hover:text-green-700"
                 >
-                    ← হোম পেজে ফিরে যান
+                    <FaArrowLeftLong /> হোম পেজে ফিরে যান
                 </Link>
             </div>
 

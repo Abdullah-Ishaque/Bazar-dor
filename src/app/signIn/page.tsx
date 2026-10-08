@@ -6,6 +6,7 @@ import { Form, TextField, Label, Input, FieldError, Button } from "@heroui/react
 import { signIn } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const SingInPage = () => {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,6 +31,16 @@ const SingInPage = () => {
         }
     };
 
+    const handleGoogleSingIn = async () => {
+        await signIn.social({
+            provider: "google",
+        });
+    }
+    const handleGitHubSingIn = async () => {
+        await signIn.social({
+            provider: "github"
+        })
+    }
 
     return (
         <div className="min-h-screen bg-[#f0f5f1] px-4 py-8 sm:px-6 sm:py-12">
@@ -98,15 +109,11 @@ const SingInPage = () => {
                     <div className="h-px flex-1 bg-gray-200" />
                 </div>
                 <div className="grid grid-cols-1 gap-3">
-                    <Button
-                        className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base"
-                    >
+                    <Button onClick={handleGoogleSingIn} className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base">
                         Google দিয়ে চালিয়ে যান
                     </Button>
 
-                    <Button
-                        className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base"
-                    >
+                    <Button onClick={handleGitHubSingIn} className="h-auto w-full whitespace-normal rounded-lg border border-gray-200 px-3 py-3 text-sm font-semibold sm:text-base">
                         GitHub দিয়ে চালিয়ে যান
                     </Button>
                 </div>
@@ -123,7 +130,7 @@ const SingInPage = () => {
                     href="/"
                     className="text-sm text-gray-500 hover:text-green-700"
                 >
-                    ← হোম পেজে ফিরে যান
+                    <FaArrowLeftLong /> হোম পেজে ফিরে যান
                 </Link>
             </div>
 

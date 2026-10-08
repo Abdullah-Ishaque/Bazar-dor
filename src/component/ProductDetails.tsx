@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 interface Market {
     market: string;
@@ -46,17 +47,14 @@ const ProductDetails = ({ product }: { product: Product }) => {
     const unitName = product.unit === "kg" ? "কেজি" : product.unit;
 
     return (
-        <main className="min-h-screen bg-[#f0f5f1] px-4 py-6 sm:px-6 sm:py-8">
+        <div className="min-h-screen bg-[#f0f5f1] px-4 py-6 sm:px-6 sm:py-8">
             <div className="mx-auto max-w-7xl">
                 <div className="mb-6 flex flex-wrap items-center gap-2 text-sm text-gray-600">
                     <Link href="/" className="hover:text-green-700">
                         হোম
                     </Link>
-                    <span>›</span>
-                    <Link
-                        href={`/category/${product.category}`}
-                        className="hover:text-green-700"
-                    >
+                    <span><MdOutlineKeyboardArrowRight /></span>
+                    <Link href={`/category/${product.category}`} className="hover:text-green-700">
                         {product.categoryNameBn}
                     </Link>
                     <span>›</span>
@@ -226,7 +224,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
 
                 </section>
             </div>
-        </main>
+        </div>
     );
 };
 

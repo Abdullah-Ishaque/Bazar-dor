@@ -14,7 +14,7 @@ interface Product {
     pct: number;
   };
 }
-
+{/* <Link href={`/product/${product.id}`} */}
 export default function MarqueeContent({
   products,
 }: {
@@ -28,11 +28,7 @@ export default function MarqueeContent({
       autoFill
     >
       {products.map((product) => (
-        <Link
-          key={product.id}
-          href={`/products/${product.slug}`}
-          className="mx-3 inline-flex items-center gap-2 whitespace-nowrap text-sm sm:mx-5 sm:text-base lg:text-lg text-gray-800 hover:underline"
-        >
+        <Link  key={product.id}  href={`/product/${product.id}`}  className="mx-3 inline-flex items-center gap-2 whitespace-nowrap text-sm sm:mx-5 sm:text-base lg:text-lg text-gray-800 hover:underline">
           <span>{product.categoryIcon}</span>
 
           <span>
